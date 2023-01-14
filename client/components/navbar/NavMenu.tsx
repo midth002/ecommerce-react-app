@@ -16,7 +16,7 @@ const NavMenu = () => {
     </Link>
     <Link href="/shop">
       <Typography variant="h6" sx={{ flexGrow: 1, mr:3, letterSpacing: 5 }}>
-        Account
+        Services
       </Typography>
     </Link>
     <Link href="/shop">

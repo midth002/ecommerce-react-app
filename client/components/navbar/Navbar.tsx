@@ -36,7 +36,7 @@ const Navbar = () => {
             </Typography>
           </IconButton>
             <NavMenu />
-          <Button color="inherit">Subscribe</Button>
+          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
