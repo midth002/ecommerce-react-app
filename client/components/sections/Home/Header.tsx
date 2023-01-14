@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image'; 
-import myImage from '../../public/images/web-design-4.png';
+import myImage from '../../../public/images/web-design-4.png';
 
 const Header = () => {
   return (
@@ -13,10 +13,8 @@ const Header = () => {
         }}>
         <Typography variant="h2" color="white" >Digital Marketing Website Templates</Typography>
         <Image
-    
       src={myImage}
       alt="Picture of the author"
- 
     />
     </Box>
     </Box>
