@@ -1,9 +1,7 @@
 import React from 'react'
-import { Grid, Box, Typography} from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import ProductCard from '../../productCard';
-import businessPhoto from '/images/category-thumb-business-large.jpg';
-import storePhoto from '/images/category-thumb-store-large.jpg';
-import servicePhoto from '/images/category-thumb-service-large.jpg';
+
 
 const templateCards = [
     {
