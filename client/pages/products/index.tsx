@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { getProducts } from '../../src/lib/utils/products';
+import { Store } from '../../components/store';
 
 const Shop = () => {
 
@@ -26,9 +27,9 @@ const Shop = () => {
 
 
   return (
-    <div>
-    <h1>Shop</h1>
-    </div>
+    <>
+      <Store products={products} />
+    </>
   )
 }
 
