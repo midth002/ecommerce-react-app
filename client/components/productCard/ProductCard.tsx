@@ -4,10 +4,11 @@ import Image from 'next/Image';
 
 interface cardProps {
     title: string, 
-    photo: any
+    photo: any,
+    price: any
 }
 
-const ProductCard = ({title, photo}: cardProps) => {
+const ProductCard = ({title, photo, price}: cardProps) => {
 
   return (
         
@@ -23,7 +24,7 @@ const ProductCard = ({title, photo}: cardProps) => {
          width={345}
          height={300}
         /> </CardMedia>
-        <CardContent>{title}</CardContent>
+        <CardContent>{title} {price}</CardContent>
       <CardActions>
         <Button size="small">Preview</Button>
         <Button size="small">Shop More</Button>

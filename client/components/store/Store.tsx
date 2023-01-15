@@ -8,7 +8,7 @@ const Store = ({ products }: any) => {
     {products?.data.map((product: any) => {
       return (
         <Grid item key={product.id}>
-            <ProductCard title={product.name} photo={product.images[0]} />
+            <ProductCard title={product.name} photo={product.images[0]} price={product.price} />
         </Grid>
        
       )
