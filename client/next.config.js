@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
-module.exports = nextConfig
+  module.exports = {
+    reactStrictMode: true,
+    // Allow images to be retrieved from stripe.com
+    images: {
+      domains: ["files.stripe.com"],
+    },
+    
+  };
+
+
+
+

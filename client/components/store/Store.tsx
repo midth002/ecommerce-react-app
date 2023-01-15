@@ -1,14 +1,19 @@
 import React from 'react'
+import { Grid } from '@mui/material';
+import ProductCard from '../productCard/ProductCard';
 
-const Store = ({products}: any) => {
+const Store = ({ products }: any) => {
   return (
-    <div>
-    {products?.data.map((p: any) => {
+    <Grid container spacing={2}>
+    {products?.data.map((product: any) => {
       return (
-        <h1 key={p.id}>{p.name}</h1>
+        <Grid item key={product.id}>
+            <ProductCard title={product.name} photo={product.images[0]} />
+        </Grid>
+       
       )
     })}
-    </div>
+    </Grid>
   )
 }
 

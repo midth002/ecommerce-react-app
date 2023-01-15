@@ -2,9 +2,9 @@ import { useState, useCallback, useEffect } from 'react';
 import { getProducts } from '../../src/lib/utils/products';
 import { Store } from '../../components/store';
 
-const Shop = () => {
+export default function Shop() {
 
-  const [products, setProducts] = useState();
+   const [products, setProducts] = useState();
 
   const productsHandler = (data: any) => {
     setProducts(data);
@@ -17,20 +17,19 @@ const Shop = () => {
   }, []);
 
 
+
+
   useEffect(() =>{
     loadData();
   }, [loadData]);
-
-
- 
-
-
 
   return (
     <>
       <Store products={products} />
     </>
-  )
+  );
 }
 
-export default Shop
+
+
+
