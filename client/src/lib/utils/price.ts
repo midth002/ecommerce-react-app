@@ -5,8 +5,8 @@ export const getPrice = async (product_priceId) => {
         Accept: 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization:
-          'Bearer ' +
-          'sk_test_51LAbiTGHZy3akc3nREvfOp259FlzTqInBGDxTC7owmSvHmb5Mi7oDOLxf0OuZvFKdHUf4Z4L9EGkWIbXaN6Lheco00LzdU4dG7',
+          'Bearer ' + 
+          'sk_test_51MQExRBUeFOv0VolW6YysDb37OyAXqoiSQWVyS1och3yhilj0tPIc3guGHkx7sJAmcnCdLKU5Y8OqxDhedEWFQfX00RjlPiMlf'
       },
     }).then((response) => response.json());
     return result;

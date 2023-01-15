@@ -5,10 +5,14 @@ import { getPrice } from '../../../src/lib/utils/price';
 
 
 
-const product = ({ product }: any) => {
+const product = ({ product, price }) => {
 
+  console.log(price);
   return (
+    <>
     <div>product id: {product?.id}</div>
+    <div>price: {price?.unit_amount}</div>
+    </>
   )
 }
 
@@ -16,8 +20,8 @@ export default product;
 
 export const getStaticProps = async ({ params }: any ) => {
   const product = await getProduct(params.id); 
-  // const price = product ? await getPrice(product?.default_price) : '';
-  return { props: { product } };
+  const price = product ? await getPrice(product.default_price) : '';
+  return { props: { product, price }};
 }
 
 
