@@ -26,7 +26,7 @@ const Pricing = () => {
             {templateCards.map((card, i) => {
                return ( 
                <Grid item xs={4} key={i}>
-                    <ProductCard title={card.title} photo={card.img} />
+                    {/* <ProductCard title={card.title} photo={card.img} /> */}
                 </Grid>
                )
             })}

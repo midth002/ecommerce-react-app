@@ -28,8 +28,6 @@ export default function Shop() {
     loadData();
   }, [loadData]);
 
-  console.log("products", products);
-  // console.log("prices", prices);
 
   return (
     <>
