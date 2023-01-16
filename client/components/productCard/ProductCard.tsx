@@ -8,8 +8,8 @@ import {
   Button,
 } from "@mui/material";
 import Image from "next/image";
+import Link from 'next/link';
 import { usePriceFormatter } from "../../src/lib/hooks/usePriceFormatter";
-import { getPrices } from "../../src/lib/utils/prices";
 
 interface cardProps {
   products: any;
@@ -29,14 +29,14 @@ const ProductCard = ({ products, prices }: cardProps) => {
           alt={products.name}
           width={345}
           height={300}
-        />{" "}
+        />
       </CardMedia>
       <CardContent>
         {usePriceFormatter.format(myPrice.unit_amount / 100)}
       </CardContent>
       <CardActions>
-        <Button size="small">Preview</Button>
-        <Button size="small">Shop More</Button>
+        <Link href={`/products/${products.id}`}>Preview</Link>
+        <Button size="small">Add to Cart</Button>
       </CardActions>
     </Card>
   );

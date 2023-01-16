@@ -2,21 +2,8 @@ import React from 'react'
 import { getProduct } from '../../../src/lib/utils/product';
 import { getProducts } from '../../../src/lib/utils/products';
 import { getPrice } from '../../../src/lib/utils/price';
+import { Box, CircularProgress } from '@mui/material';
 
-
-
-const product = ({ product, price }) => {
-
-  console.log(price);
-  return (
-    <>
-    <div>product id: {product?.id}</div>
-    <div>price: {price?.unit_amount}</div>
-    </>
-  )
-}
-
-export default product;
 
 export const getStaticProps = async ({ params }: any ) => {
   const product = await getProduct(params.id); 
@@ -37,3 +24,28 @@ export const getStaticPaths = async () => {
     fallback: true,
   };
 };
+
+const product = ({ product, price }) => {
+
+  return (
+    <>
+    {product && price ? (
+      <>
+       <div>product id: {product?.id}</div>
+       <div>price: {price?.unit_amount}</div>
+      </>
+    ) : (
+      <Box>
+      <CircularProgress color="secondary" />
+      </Box>
+    )
+
+
+    }
+   
+    </>
+  )
+}
+
+export default product;
+

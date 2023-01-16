@@ -28,8 +28,7 @@ export default function Shop() {
     loadData();
   }, [loadData]);
 
-  console.log(products);
-  console.log(prices);
+
   return (
     <>
     
@@ -46,6 +45,8 @@ export default function Shop() {
     </>
   );
 }
+
+
 
 
 
