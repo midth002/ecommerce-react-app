@@ -13,6 +13,9 @@ const NavMenu = () => {
       <Typography variant="h6" sx={{ flexGrow: 1, mr:3, letterSpacing: 5 }}>
         About
       </Typography>
+
+
+      
     </Link>
     <Link href="/services">
       <Typography variant="h6" sx={{ flexGrow: 1, mr:3, letterSpacing: 5 }}>
