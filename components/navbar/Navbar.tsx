@@ -13,6 +13,7 @@ import NavMenu from "./NavMenu";
 const Navbar = () => {
   const theme = useTheme();
 
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "#812bea" }}>
