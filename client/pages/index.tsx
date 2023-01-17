@@ -6,7 +6,7 @@ export default function Home() {
     <div>
     
     <Header />
-    {/* <Pricing /> */}
+    {/* <Pricing />  */}
     </div>
   )
 }
