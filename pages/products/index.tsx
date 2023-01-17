@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import { getProducts } from '../../src/lib/utils/products';
-import { getPrices } from '../../src/lib/utils/prices';
+import { getProducts } from '../../lib/utils/products';
+import { getPrices } from '../../lib/utils/prices';
 import { Store } from '../../components/store';
 import { Box, CircularProgress } from '@mui/material';
 

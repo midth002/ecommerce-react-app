@@ -1,7 +1,7 @@
 import React from 'react'
-import { getProduct } from '../../../src/lib/utils/product';
-import { getProducts } from '../../../src/lib/utils/products';
-import { getPrice } from '../../../src/lib/utils/price';
+import { getProduct } from '../../../lib/utils/product';
+import { getProducts } from '../../../lib/utils/products';
+import { getPrice } from '../../../lib/utils/price';
 import { Box, CircularProgress } from '@mui/material';
 
 
