@@ -8,7 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import Image from "next/image";
-import Link from 'next/link';
+import Link from "next/link";
 import { usePriceFormatter } from "../../src/lib/hooks/usePriceFormatter";
 
 interface cardProps {

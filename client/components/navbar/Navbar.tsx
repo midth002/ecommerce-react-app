@@ -6,15 +6,9 @@ import {
   Button,
   IconButton,
   useTheme,
-  List,
 } from "@mui/material";
 import { DesignServices } from "@mui/icons-material";
-import Link from "next/link";
 import NavMenu from "./NavMenu";
-
-/* type NavbarProps = {
-    page: string
-} */
 
 const Navbar = () => {
   const theme = useTheme();
@@ -22,7 +16,7 @@ const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "#812bea" }}>
-        <Toolbar sx={{justifyContent: 'space-between'}}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <IconButton
             size="large"
             edge="start"
@@ -31,11 +25,9 @@ const Navbar = () => {
             sx={{ mr: 2 }}
           >
             <DesignServices />
-            <Typography>
-             Star Themes
-            </Typography>
+            <Typography>Star Themes</Typography>
           </IconButton>
-            <NavMenu />
+          <NavMenu />
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
