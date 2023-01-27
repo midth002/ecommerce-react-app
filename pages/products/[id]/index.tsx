@@ -1,6 +1,7 @@
 import React from 'react'
 import { getProduct } from '../../../lib/utils/product';
 import { getProducts } from '../../../lib/utils/products';
+import { useCartStore } from '../../../lib/store';
 import { getPrice } from '../../../lib/utils/price';
 import { Box, CircularProgress } from '@mui/material';
 import ProductPage from '../../../components/products/ProductPage';
@@ -27,12 +28,13 @@ export const getStaticPaths = async () => {
 };
 
 const product = ({ product, price }) => {
+  const { cart, addToCart } = useCartStore();
 
   return (
     <>
     {product && price ? (
       <>
-        <ProductPage product={product} price={price} />
+        <ProductPage product={product} price={price} cart={cart} addToCart={addToCart}/>
       </>
     ) : (
       <Box>

@@ -7,7 +7,7 @@ export type ProductType = {
     // description: string,
     id: string, 
     image: string, 
-    // price: number, 
+    price: number, 
     name: string
 };
 

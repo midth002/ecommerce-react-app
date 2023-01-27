@@ -4,18 +4,26 @@ import { ShoppingBag } from '@mui/icons-material';
 import Image from "next/image";
 
 interface ProductPageProps {
-  product: any, 
-  price: any
+  product: any;
+  price: any;
+  cart: any;
+  addToCart: (item: any) => void;
 }
 
 
 
-const ProductPage = ({product, price}: ProductPageProps ) => {
+const ProductPage = ({product, price, cart, addToCart}: ProductPageProps ) => {
 
     const [alertOpen, setAlertOpen] = useState<boolean>(false);
 
-    const handleAddToCartClick = (e) => {
+    const handleAddToCartClick = (e: any) => {
         e.preventDefault();
+        const _item = {
+            ...product, 
+            price: price?.unit_amount
+        }; 
+        addToCart(_item);
+        console.log(cart)
         setAlertOpen(true);
       }
 
