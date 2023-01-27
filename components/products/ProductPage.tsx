@@ -26,7 +26,6 @@ const ProductPage = ({product, price, cart, addToCart}: ProductPageProps ) => {
             price: price?.unit_amount
         }; 
         addToCart(_item);
-        console.log(cart)
         setAlertOpen(true);
       }
 

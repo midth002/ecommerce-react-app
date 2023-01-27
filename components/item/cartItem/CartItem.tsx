@@ -1,13 +1,19 @@
-import React from 'react'
+import { useState } from 'react'
 import { useCartStore } from '../../../lib/store';
 import { usePriceFormatter } from '../../../lib/hooks/usePriceFormatter';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Alert } from '@mui/material';
 import Image from 'next/image';
 
 const CartItem = ({ item, itemIndex }: any) => {
+  const [alertOpen, setAlertOpen] = useState<boolean>(false);
   const { cart, updateCartItem, removeFromCart } = useCartStore();
 
   const formattedUnitPrice = usePriceFormatter.format(item.price / 100);
+
+  const removeItemFromCart = () => {
+    removeFromCart(item);
+    setAlertOpen(true);
+  }
 
   return (
    <Box key={item.id} sx={{
@@ -27,7 +33,14 @@ const CartItem = ({ item, itemIndex }: any) => {
      
       
       <Typography>{formattedUnitPrice}</Typography>
-      <Button variant="contained" sx={{height: 50}}>Remove Item</Button>
+      <Button 
+      variant="contained"
+      onClick={() => removeItemFromCart()}
+      sx={{height: 50}}>Remove Item</Button>
+
+      {alertOpen &&
+          <Alert severity='info' onClose={() => {setAlertOpen(false)}}>Item Removed from Cart</Alert>
+      }
    </Box>
   )
 }
