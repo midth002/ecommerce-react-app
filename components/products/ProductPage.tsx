@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box,Typography, Button, Alert } from '@mui/material';
 import { ShoppingBag } from '@mui/icons-material';
+import { usePriceFormatter } from '../../lib/hooks/usePriceFormatter';
 import Image from "next/image";
 
 interface ProductPageProps {
@@ -15,6 +16,8 @@ interface ProductPageProps {
 const ProductPage = ({product, price, cart, addToCart}: ProductPageProps ) => {
 
     const [alertOpen, setAlertOpen] = useState<boolean>(false);
+
+    const formattedUnitPrice = usePriceFormatter.format(price?.unit_amount / 100);
 
     const handleAddToCartClick = (e: any) => {
         e.preventDefault();
@@ -45,7 +48,7 @@ const ProductPage = ({product, price, cart, addToCart}: ProductPageProps ) => {
         }}
         > 
             <Typography>{product?.name}</Typography>
-            <Typography>$ {price?.unit_amount}</Typography>
+            <Typography>{formattedUnitPrice}</Typography>
             <Typography>{product?.description}</Typography>
             <Button endIcon={<ShoppingBag />} onClick={handleAddToCartClick}>Add To Cart</Button>
         </Box>

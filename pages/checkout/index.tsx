@@ -1,29 +1,28 @@
 import { Box, Typography } from "@mui/material";
 import { useCartStore } from "../../lib/store";
 import { useEffect, useState } from 'react';
-
+import { CartPage } from "../../components/cart";
+import Head from "next/head";
+import { Diversity1, Diversity1Outlined } from "@mui/icons-material";
 
 const checkout = () => {
-  const [ checkout, setCheckout ] = useState({
-
-  });
-  const myStore = useCartStore((store) => store.cart.items);
 
 
-  useEffect(() => {
-   setCheckout(myStore[0]);
-  }, [checkout]);
 
-  console.log(checkout)
+
 
   return (
-    <>
-      {myStore[0] && (
-        <Box>
-          {/* <Typography>{checkout.name}</Typography> */}
-        </Box>
-      ) }
-    </>
+    <div>
+        <Head>
+        <title>Star Themes - Checkout</title>
+        <meta
+          id="meta-description"
+          name="description"
+          content="Here is your checkout screen."
+        />
+      </Head>
+     <CartPage />
+    </div>
     
   )
 };

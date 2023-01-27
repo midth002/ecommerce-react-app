@@ -8,8 +8,8 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { usePriceFormatter } from "../../lib/hooks/usePriceFormatter";
-import { useCartStore } from "../../lib/store";
+import { usePriceFormatter } from "../../../lib/hooks/usePriceFormatter";
+import { useCartStore } from "../../../lib/store";
 
 interface cardProps {
   products: any;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid } from '@mui/material';
-import ProductCard from '../productCard/ProductCard';
+import ProductCard from '../products/productCard/ProductCard';
 
 const Store = ({ products, prices}: any) => {
 

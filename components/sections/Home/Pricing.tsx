@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Box } from "@mui/material";
-import ProductCard from "../../productCard";
+import ProductCard from "../../products/productCard";
 
 const templateCards = [
   {
