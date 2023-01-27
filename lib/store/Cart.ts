@@ -1,14 +1,14 @@
-import create from 'zustand'; 
+import { create } from 'zustand'; 
 import { persist } from 'zustand/middleware';
 
 export type ProductType = {
-    createdAt: string, 
-    updatedAt: string,
-    description: string,
+    // createdAt: string, 
+    // updatedAt: string,
+    // description: string,
     id: string, 
     image: string, 
-    price: number, 
-    title: string
+    // price: number, 
+    name: string
 };
 
 export type CartType = {
@@ -56,9 +56,10 @@ const useCartStore = create<CartStoreProps>()(
         resetCart: () =>
           set(() => ({
             cart: defaultState
-          }))
+          })),
+        
       }),
-      { name: "cart-store" }
+      { name: "my-store" }
     )
   );
 

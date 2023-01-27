@@ -3,6 +3,7 @@ import { getProduct } from '../../../lib/utils/product';
 import { getProducts } from '../../../lib/utils/products';
 import { getPrice } from '../../../lib/utils/price';
 import { Box, CircularProgress } from '@mui/material';
+import ProductPage from '../../../components/products/ProductPage';
 
 
 export const getStaticProps = async ({ params }: any ) => {
@@ -31,8 +32,7 @@ const product = ({ product, price }) => {
     <>
     {product && price ? (
       <>
-       <div>product id: {product?.id}</div>
-       <div>price: {price?.unit_amount}</div>
+        <ProductPage product={product} price={price} />
       </>
     ) : (
       <Box>

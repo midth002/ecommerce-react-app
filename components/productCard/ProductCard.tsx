@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Typography,
   Card,
   CardMedia,
   CardContent,
@@ -10,6 +9,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePriceFormatter } from "../../lib/hooks/usePriceFormatter";
+import { useCartStore } from "../../lib/store";
 
 interface cardProps {
   products: any;
@@ -17,6 +17,14 @@ interface cardProps {
 }
 
 const ProductCard = ({ products, prices }: cardProps) => {
+
+  const { addToCart } = useCartStore();
+
+  function myCart(myProduct: any) {
+    addToCart(myProduct);
+    console.log(myProduct);
+  }
+
   const myPrice = prices?.data
     ? prices.data.find((p: any) => p.id === products.default_price)
     : { unit_amount: 0 };
@@ -36,7 +44,11 @@ const ProductCard = ({ products, prices }: cardProps) => {
       </CardContent>
       <CardActions>
         <Link href={`/products/${products.id}`}>Preview</Link>
-        <Button size="small">Add to Cart</Button>
+        <Button size="small" onClick={() => myCart({
+          id: products.id,
+          image: products.images[0], 
+          name: products.name
+        })}>Add to Cart</Button>
       </CardActions>
     </Card>
   );
