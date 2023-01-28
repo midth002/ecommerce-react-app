@@ -2,14 +2,11 @@ import { Box, Typography } from "@mui/material";
 import { useCartStore } from "../../lib/store";
 import { useEffect, useState } from 'react';
 import { CartPage } from "../../components/cart";
+import { CheckoutForm } from "../../components/checkoutForm";
 import Head from "next/head";
 import { Diversity1, Diversity1Outlined } from "@mui/icons-material";
 
 const checkout = () => {
-
-
-
-
 
   return (
     <div>
@@ -22,6 +19,7 @@ const checkout = () => {
         />
       </Head>
      <CartPage />
+      
     </div>
     
   )

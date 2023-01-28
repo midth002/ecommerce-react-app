@@ -3,11 +3,16 @@ import { useCartStore } from '../../../lib/store';
 import { usePriceFormatter } from '../../../lib/hooks/usePriceFormatter';
 import { CartItem } from '../../item';
 import { Box, Typography, Button } from '@mui/material';
+import { CheckoutForm } from '../../checkoutForm';
 
 const CartPage = () => {
 
     const { cart, updateCartItem, removeFromCart } = useCartStore();
 
+    const calcStripePrice = (items: any) => {
+      return items.reduce((total: any, item: any)=> total + item.price,0)
+    }
+    
     
     const calcTotalPrice = (items: any) => {
       const totalPrice =  items.reduce((total: any, item: any)=> total + item.price,0)
@@ -15,16 +20,20 @@ const CartPage = () => {
      return formattedUnitPrice;
     }
     
-    console.log(cart);
+   
 
   return (
     <Box sx={{ 
       m: 5,
-      width: '75%'
+      display: 'flex',
+      flexWrap: 'wrap'
     }}>
-      <Typography variant='h2'>Your Cart</Typography>
-
-      <Typography>Total: {calcTotalPrice(cart.items)}</Typography>
+      <Typography variant='h2' 
+      sx={{
+        width: '100%'
+      }}>Your Cart</Typography>
+      <Box className="products-pane" sx={{width: '75%'}}>
+      
       {cart.items.length >= 1 &&
         cart.items.map((cart: any, index: number) => (
           <Box key={cart.id}>
@@ -32,7 +41,13 @@ const CartPage = () => {
           </Box>
         ))
       }
-      
+      </Box>
+
+       <Box sx={{ width: '25%' }}>
+       <Typography sx={{my: 5}}>Total: {calcTotalPrice(cart.items)}</Typography>
+      <CheckoutForm totalAmount={calcStripePrice(cart.items)}/>
+      </Box> 
+
     </Box>
   )
 }
