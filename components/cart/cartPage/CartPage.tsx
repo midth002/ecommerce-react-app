@@ -44,7 +44,7 @@ const CartPage = () => {
       </Box>
 
        <Box sx={{ width: '25%' }}>
-       <Typography sx={{my: 5}}>Total: {calcTotalPrice(cart.items)}</Typography>
+       <Typography variant="h5" sx={{my: 5}}>Total: {calcTotalPrice(cart.items)}</Typography>
       <CheckoutForm totalAmount={calcStripePrice(cart.items)}/>
       </Box> 
 

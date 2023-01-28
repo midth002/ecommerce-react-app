@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Box } from '@mui/material';
+import { useState } from "react";
+import { Button, Box, Typography } from '@mui/material';
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -9,7 +9,7 @@ import {
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 
-const Form = ({ totalAmount }) => {
+const Form = ({ totalAmount, success }) => {
 
     const stripe = useStripe();
     const elements = useElements();
@@ -30,7 +30,7 @@ const Form = ({ totalAmount }) => {
 
             const { data } = await axios.post("/api/charge", { id, amount: totalAmount})
             console.log(data);
-
+            success();
 
         } catch(err) {
             console.log(err);
@@ -53,11 +53,21 @@ const Form = ({ totalAmount }) => {
 
 
 const CheckoutForm = ({ totalAmount }) => {
+
+    const [status, setStatus ] = useState('ready');
+
+    if (status === "success" ) {
+        return  <Typography variant="h6">Your payment was successful!</Typography>
+    }
+ 
     const stripePromise = loadStripe("pk_test_51MQExRBUeFOv0VolmmWbBrj0ZZpWNqxpjO3amLgwp8HxKWN5oJpmpsKRk6Zz5vKFw8xPQVjN1iIDydZGOJn677if00XceExs6H")
    
    return (
    <Elements stripe={stripePromise}>
-        <Form totalAmount={totalAmount} />
+        <Form totalAmount={totalAmount} success={() => {
+            setStatus("success")
+        }}
+            />
     </Elements>
    );
 }
